@@ -1,8 +1,9 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {
-  if (renderLicenseBadge !== none) {
-    `[![License: MIT](https://img.shields.io/badge/License-${license}-yellow.svg)](https://opensource.org/licenses/MIT)`;
+function renderLicenseBadge(data) {
+  if (data.confirmLicense !== "none") {
+    `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
+    console.log("working");
   } else {
     return "";
   }
@@ -44,9 +45,8 @@ function generateMarkdown(data) {
 
   ## License
 
-  ${renderLicenseBadge()}
+  ${renderLicenseBadge(data)}
 
-  ## 
   `;
 }
 

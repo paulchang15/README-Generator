@@ -1,17 +1,20 @@
-# asdf
+# hi
   
   ## Description
 
-  asdf
+  123
 
   ## Table of Contents
   
   
   * [Installation](#installation) 
+  * [Usage](#usage) 
+  * [Credits](#credits) 
+  * [License](#license) 
 
   ## Installation
 
-  asdf
+  1245
 
   ## Usage 
 
@@ -23,11 +26,6 @@
 
   ## License
 
-  function renderLicenseBadge(license) {
-  if (renderLicenseBadge !== none) {
-    `[![License: MIT](https://img.shields.io/badge/License-${license}-yellow.svg)](https://opensource.org/licenses/MIT)`;
-  } else {
-    return "";
-  }
-}
+  undefined
+
   
