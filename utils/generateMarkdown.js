@@ -1,9 +1,8 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(data) {
-  if (data.confirmLicense !== "none") {
-    `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
-    console.log("working");
+function renderLicenseBadge(license) {
+  if (license) {
+    return `[![License: MIT](https://img.shields.io/badge/License-${license}-yellow.svg)](https://opensource.org/licenses/MIT)`;
   } else {
     return "";
   }
@@ -11,16 +10,36 @@ function renderLicenseBadge(data) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license !== "none") {
+    return `[MIT License](https://opensource.org/licenses/MIT)`;
+  } else {
+    return "";
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(data) {
+  if (data) {
+    console.log("license work");
+    return `Copyright ${data} Paul Chang
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+    `;
+  } else {
+    return "";
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  console.log(data.contents);
-
+  console.log(data.license);
+  console.log(data.confirmInstall);
   return `# ${data.title}
   
   ## Description
@@ -45,11 +64,20 @@ function generateMarkdown(data) {
 
   ## License
 
-  ${renderLicenseBadge(data)}
-
+  ${renderLicenseBadge(data.license)}
+  ${renderLicenseLink(data.confirmLicense)}
+  ${renderLicenseSection(data.licenseYear)}
   `;
 }
 
+// function installProject(project, installation) {
+//   if (project) {
+//     `${installation}`;
+//     console.log("install working");
+//   } else {
+//     return "";
+//   }
+// }
 function tableContents(contents) {
   let tableString = "";
   if (contents.find((val) => val === "Installation")) {
@@ -66,6 +94,7 @@ function tableContents(contents) {
   }
   return tableString;
 }
-module.exports = generateMarkdown;
+module.exports = { generateMarkdown, renderLicenseSection };
+
 // ${renderLicenseBadge(data.license)}
 // ${renderLicenseLink(data.license)}

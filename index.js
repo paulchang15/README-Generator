@@ -1,4 +1,5 @@
-const markDown = require("./utils/generateMarkdown");
+const generateMarkdown = require("./utils/generateMarkdown");
+
 const fs = require("fs");
 
 // TODO: Include packages needed for this application
@@ -43,12 +44,6 @@ const questions = [
   },
 
   {
-    type: "confirm",
-    name: "confirmAbout",
-    message: "Do you need to install the project?",
-    default: true,
-  },
-  {
     type: "input",
     name: "installation",
     message:
@@ -68,12 +63,6 @@ const questions = [
     message: "Provide instructions and examples for use.",
   },
   {
-    type: "confirm",
-    name: "confirmCredits",
-    message: "Are there any collaborators?",
-    default: true,
-  },
-  {
     type: "input",
     name: "credits",
     message:
@@ -86,6 +75,12 @@ const questions = [
     default: true,
   },
   {
+    type: "list",
+    name: "license",
+    message: "Select the License you will need for this README",
+    choices: ["AGPL-3.0", "GPL-3.0", "MPL-2.0", "MIT", "BSL-1.0"],
+  },
+  {
     type: "input",
     name: "licenseYear",
     message: "Provide the year of the License",
@@ -94,6 +89,8 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
+  console.log(fileName);
+  // console.log(data);
   return new Promise((resolve, reject) => {
     fs.writeFile(fileName, data, (err) => {
       // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
@@ -115,7 +112,7 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
-    writeToFile("README.md", markDown(answers));
+    writeToFile("README.md", generateMarkdown(answers));
   });
 }
 
