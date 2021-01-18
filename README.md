@@ -1,8 +1,8 @@
-# asdf
+# README Generator
   
   ## Description
 
-  asdf
+  an application that generates a README using user data on Node.js
 
   ## Table of Contents
   
@@ -10,15 +10,14 @@
   * [Installation](#installation) 
   * [Usage](#usage) 
   * [Credits](#credits) 
-  * [License](#license) 
 
   ## Installation
 
-  asdf
+  npm install and need to inquirer.
 
   ## Usage 
 
-  asdf
+  
 
   ## Credits
 
@@ -26,7 +25,7 @@
 
   ## License
 
-  [![License: MIT](https://img.shields.io/badge/License-AGPL-3.0-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [MIT License](https://opensource.org/licenses/MIT)
   Copyright 2021 Paul Chang
 
